@@ -6,12 +6,14 @@ namespace OOP01Task06
 {
     internal class DeliveryCenter
     {
+        public string CenterName { get; set; }
         private Shipment[] _shipments;
 
         //ctor
-        public DeliveryCenter(int capacity)
+        public DeliveryCenter(string centerName)
         {
-            _shipments = new Shipment[capacity];
+            CenterName = centerName;
+            _shipments = new Shipment[20];
         }
 
         public Shipment this[int index]
@@ -37,11 +39,11 @@ namespace OOP01Task06
         {
             get
             {
-                if (_shipments != null)
+                if (_shipments != null && !string.IsNullOrWhiteSpace(trackingCode))
                 {
                     for (int i = 0; i < _shipments.Length; i++)
                     {
-                        if (_shipments[i].TrackingCode == trackingCode)
+                        if (_shipments[i] != null &&  _shipments[i].TrackingCode == trackingCode)
                         {
                             return _shipments[i];
                         }
@@ -53,14 +55,10 @@ namespace OOP01Task06
 
         public bool AddShipment(Shipment shipment)
         {
-            //if (_shipments == null)
-            //{
-            //    _shipments = new Shipment[10];
-            //}
-
+            if (shipment == null) return false;
             for (int i = 0; i < _shipments.Length; i++)
             {
-                if (string.IsNullOrEmpty(_shipments[i].TrackingCode) || _shipments[i].TrackingCode == "UNKNOWN")
+                if (_shipments[i] == null || _shipments[i].TrackingCode == "UNKNOWN")
                 {
                     _shipments[i] = shipment;
                     return true;
