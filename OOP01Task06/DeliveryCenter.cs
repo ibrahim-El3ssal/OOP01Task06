@@ -66,5 +66,34 @@ namespace OOP01Task06
             }
             return false;
         }
+        public bool RemoveShipmentByTrackingCode(string trackingCode)
+        {
+            if (string.IsNullOrWhiteSpace(trackingCode)) return false;
+
+            for (int i = 0; i < _shipments.Length; i++)
+            {
+                if (_shipments[i] != null && _shipments[i].TrackingCode == trackingCode)
+                {
+                    _shipments[i] = null ;
+                    return true; 
+                }
+            }
+            return false; 
+        }
+
+        public void PrintAllShipments()
+        {
+            if(_shipments != null)
+            {
+                for (int i = 0; i < _shipments.Length; i++)
+                {
+                    if (_shipments[i] != null )
+                    {
+                    Console.WriteLine(_shipments[i]); 
+                    }
+                }
+            }
+
+        }
     }
 }
