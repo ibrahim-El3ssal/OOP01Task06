@@ -83,17 +83,29 @@ namespace OOP01Task06
 
         public void PrintAllShipments()
         {
-            if(_shipments != null)
+            Console.WriteLine("==================================================");
+            Console.WriteLine($"Delivery Center : {CenterName}");
+            Console.WriteLine("==================================================");
+
+            if (_shipments != null)
             {
                 for (int i = 0; i < _shipments.Length; i++)
                 {
-                    if (_shipments[i] != null )
+                    if (_shipments[i] != null)
                     {
-                    Console.WriteLine(_shipments[i]); 
+                        // استدعاء دالة الطباعة الخاصة بكل كلاس
+                        if (_shipments[i] is StandardShipment std) std.PrintShipment();
+                        else if (_shipments[i] is ExpressShipment exp) exp.PrintShipment();
+                        else if (_shipments[i] is InternationalShipment @int) @int.PrintShipment();
+                        else _shipments[i].PrintShipment();
+
+                        Console.WriteLine();
                     }
                 }
             }
-
         }
+
     }
+
+
 }

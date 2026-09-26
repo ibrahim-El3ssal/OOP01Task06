@@ -8,6 +8,13 @@ namespace OOP01Task06
     {
         public StandardShipment(string trackingCode, string description, double weight, decimal deliveryFee, DeliveryAddress destination) : base(trackingCode, description, weight, deliveryFee, destination) { }
 
+        public void PrintShipment()
+        {
+            Console.WriteLine("Standard Shipment\n");
+            base.PrintShipment();
+        }
 
     }
+
+
 }

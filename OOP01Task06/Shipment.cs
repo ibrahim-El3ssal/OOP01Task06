@@ -80,16 +80,14 @@ namespace OOP01Task06
                 DeliveryFee = newFee;
             }
         }
-        public void PrintShipment()
+        public virtual void PrintShipment()
         {
-            Console.WriteLine($"\n Shipment Details ");
-            Console.WriteLine($"Tracking Code  : {TrackingCode}");
-            Console.WriteLine($"Description    : {Description}");
-            Console.WriteLine($"Weight         : {Weight} kg");
-            Console.WriteLine($"Delivery Fee   : {DeliveryFee:C}");
-            Console.WriteLine($"Destination    : {Destination.GetFullAddress()}");
-            Console.WriteLine($"Estimated Cost : {EstimatedCost:C}");
-            Console.WriteLine(new string('-', 25));
+            Console.WriteLine($"Tracking Code : {TrackingCode}");
+            Console.WriteLine($"Description   : {Description}");
+            Console.WriteLine($"Weight        : {Weight} KG");
+            Console.WriteLine($"Delivery Fee  : {DeliveryFee} EGP");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost} EGP");
+            Console.WriteLine("--------------------------------------------------");
         }
     }
 }
